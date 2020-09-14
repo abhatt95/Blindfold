@@ -5,7 +5,7 @@
       .bf-popup-wrapper {
       margin: 0;
       overflow: hidden;
-      width: 348px;
+      width: 380px;
       }
       div {
         display: block;
@@ -33,8 +33,8 @@
 
       .single-setting-section{
         background: inherit;
-        padding: 5% 20%;
-        margin: 20px 20px;
+        padding: 5% 7%;
+        margin: 5% auto;
         box-sizing: border-box;
         /* border-top: .2px solid grey; */
         border-bottom: .2px solid grey;
@@ -49,28 +49,77 @@
         padding-left: 30%
       }
       .settings-button{
-        padding-left: 15%
+        padding-left: 15%;
+        padding-bottom: 2%;
       }
 
       btn-settings{
         padding: 1%;
         margin: 1%;
       }
+
+      /* To blur screen */
+      .blur   {
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    }
+    #overlay    {
+        position: fixed;
+        display: none;
+        left: 0px;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        background: rgba(255,255,255,.8);
+        z-index: 999;
+    }
+    #popup {
+        position: absolute;
+        width: 400px;
+        height: 200px;
+        background: rgb(255,255,255);
+        border: 5px solid rgb(90,90,90);
+        left: 0px;
+        right: 0px;
+        top: 0px;
+        bottom: 0px;
+        margin: auto;
+    }
+
     </style>
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+    <script>
+        myBlurFunction = function(state) {
+        /* state can be 1 or 0 */
+        var containerElement = document.getElementById('main_container');
+        var overlayEle = document.getElementById('overlay');
+
+        if (state) {
+            overlayEle.style.display = 'block';
+            containerElement.setAttribute('class', 'blur');
+        } else {
+            overlayEle.style.display = 'none';
+            containerElement.setAttribute('class', null);
+        }
+    };
+    </script>
+
 
   </head>
   <body class="bf-popup-wrapper">
     <div class="popup">
       <div class="control-box text-center">
-          <button type="button" class="btn btn-info start-button">Start session</button>
+          <button type="button" class="btn btn-info start-button" id="startSession">Start session</button>
       </div>
         <!-- <button id="changeColor"></button> -->
-        <!-- <script src="popup.js"></script> -->
+        <script src="popup.js"></script>
     </div>
     <div>
     <div>
@@ -92,26 +141,13 @@
         <div id="demo" class="collapse">
             <div class="settings">
                 <div class="single-setting-section">
-                  <div style="display:inline-block" >
-                      <p >Every</p>
-                  </div>
-                  <div style="display:inline-block" >
-                      <select id="Company" class="form-control form-control-lg" name="Company" style="display:inline-block">
-                          <option value="small">20</option>
-                          <option value="medium">40</option>
-                          <option value="large">60</option>
-                      </select> 
-          
-                  </div>  
-                  <div style="display:inline-block" >
-                      <p style="display:inline-block">minutes</p>
-                  </div>     
-                </div>
-                <div class="single-setting-section">
                     <div style="display:inline-block" >
-                        <p >for</p>
+                        <p >For</p>
                     </div>
-                    <div style="display:inline-block" >
+                    <div 
+                    style="display:inline-block" 
+                    
+                    >
                         <select id="Company" class="form-control form-control-lg" name="Company" style="display:inline-block">
                             <option value="small">20</option>
                             <option value="medium">40</option>
@@ -123,7 +159,42 @@
                         <p style="display:inline-block">seconds</p>
                     </div>     
                   </div>
+
+                  <div class="single-setting-section">
+                      <div style="display:inline-block" >
+                          <p >Every</p>
+                      </div>
+                      <div style="display:inline-block" >
+                          <select id="Company" class="form-control form-control-lg" name="Company" style="display:inline-block">
+                              <option value="small">20</option>
+                              <option value="medium">40</option>
+                              <option value="large">60</option>
+                          </select> 
+              
+                      </div>  
+                      <div style="display:inline-block" >
+                          <p style="display:inline-block">minutes</p>
+                      </div>     
+                    </div>
+
+                  <div class="single-setting-section">
+                      <div style="display:inline-block" >
+                          <p >From</p>
+                      </div>
+                      <div style="display:inline-block" >
+                          <input type="time" id="appt" name="appt" class="form-control"
+                            min="09:00" max="18:00" required>
+                      </div>
+                      <div style="display:inline-block" >
+                          <p >to</p>
+                      </div> 
+                      <div style="display:inline-block" >
+                          <input type="time" id="appt" name="appt" class="form-control"
+                          min="09:00" max="18:00" required>
+                      </div>
+                  </div>
               </div>
+
         </div>
       </div>
     </div>

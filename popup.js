@@ -8,3 +8,12 @@ changeColor.onclick = function(element) {
       {code: 'document.body.style.backgroundColor="' + color + '";'});
   });
 };
+
+let startSessionButton = document.getElementById('startSession');
+
+startSessionButton.onclick = function(element){
+  console.log("Start Session was pressed");
+}
+
+
+
