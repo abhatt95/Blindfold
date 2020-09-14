@@ -1,5 +1,9 @@
 chrome.runtime.onInstalled.addListener(function() {
-  chrome.storage.sync.set({counter: 3, overlay_on: false}, function() {
+  chrome.storage.sync.set({
+    counter: 20,
+    overlay_on: false
+  },
+  function() {
     console.log("The counter is: " + counter);
   });
   chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
