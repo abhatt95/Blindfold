@@ -96,19 +96,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
     <script>
-        myBlurFunction = function(state) {
-        /* state can be 1 or 0 */
-        var containerElement = document.getElementById('main_container');
-        var overlayEle = document.getElementById('overlay');
-
-        if (state) {
-            overlayEle.style.display = 'block';
-            containerElement.setAttribute('class', 'blur');
-        } else {
-            overlayEle.style.display = 'none';
-            containerElement.setAttribute('class', null);
-        }
-    };
     </script>
 
 
@@ -116,7 +103,7 @@
   <body class="bf-popup-wrapper">
     <div class="popup">
       <div class="control-box text-center">
-          <button type="button" class="btn btn-info start-button" id="startSession">Start session</button>
+          <button type="button" class="btn btn-info start-button" id="startSession"> Start session</button>
       </div>
         <!-- <button id="changeColor"></button> -->
         <script src="popup.js"></script>
