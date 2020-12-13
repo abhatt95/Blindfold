@@ -1,7 +1,7 @@
 chrome.runtime.onInstalled.addListener(function() {
   chrome.storage.sync.set({
-    counter: 20,
-    overlay_on: false
+    counter: localStorage.getItem("sessionDuration"),
+    overlay_on: false,
   },
   function() {
     console.log("The counter is: " + counter);
@@ -17,3 +17,4 @@ chrome.runtime.onInstalled.addListener(function() {
       }]);
     });
 });
+
